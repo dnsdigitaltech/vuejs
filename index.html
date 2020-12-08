@@ -11,8 +11,6 @@
 
 <body>
     <div id="root">
-        <p>{{nome}}</p>
-        <input type="text" v-model="nome">
         <div v-if="visivel">
             <h3>DIV 1 </h3>
         </div>
@@ -20,14 +18,24 @@
         <div v-else="visivel">
             <h3>DIV2 </h3>
         </div>
+        <button v-on:click="mostrarEsconder">Click</button>
+        <button v-on:click="metodo1">Click 1</button>
     </div>
     <script>
         let root = new Vue({
             el: "#root",
             data: {
-                nome: "Davi",
                 visivel: true
-            }
+            },
+            methods: {
+                mostrarEsconder: function() {
+                    this.visivel = !this.visivel
+                    console.log(this.visivel)
+                },
+                metodo1: function() {
+                    console.log("Experiência")
+                }
+            },
         });
     </script>
 </body>
