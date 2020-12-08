@@ -1,5 +1,21 @@
 <template>
     <div>
-        <h1>Olá Vue!</h1>
+        <p>Olá Mundo! {{nome}} {{apelido}}</p>
     </div>
 </template>
+
+<script>
+    export default{
+        methods:{
+            click: function(){
+
+            }
+        },
+        data:function(){
+            return {
+                nome: "Davi",
+                apelido: "Bernardo"
+            }
+        }
+    }
+</script>

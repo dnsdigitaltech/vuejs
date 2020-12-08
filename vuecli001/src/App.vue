@@ -1,12 +1,12 @@
 <template>
   <div id="app">
-    <p>Este é o componente App</p>
-    <novo />
+    <Novo />
   </div>
 </template>
 
 <script>
-import Novo from './components/Novo.vue'
+
+import Novo from "./components/Novo.vue";
 
 export default {
   name: 'App',
@@ -17,12 +17,5 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
