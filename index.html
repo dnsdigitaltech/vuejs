@@ -11,30 +11,33 @@
 
 <body>
     <div id="root">
-        <input type="text" v-model="novaFruta" id="">
-        <button v-on:click="inserirFruta">Inserir</button>
-        <p>Lista de Frutas:</p>
-        <ul>
-            <li v-for="fruta in frutas">{{fruta}}</li>
-        </ul>
-        <p>Total: <b>{{ totalFrutos }}</b></p>
+        <h3>o país selecionado é {{pais}}</h3>
+        <img :src="imagem" :alt="nome_imagem">
+        <div>
+            <button @click="mostrarPortugal">Portugal</button>
+            <button @click="mostrarBrasil">Brasil</button>
+        </div>
     </div>
     <script>
         let root = new Vue({
             el: "#root",
             data: {
-                frutas: [],
-                novaFruta: '',
-                totalFrutos: 0
+                pais: '',
+                imagem: '',
+                nome_imagem: 'Bandeira'
             },
             methods: {
-                inserirFruta: function() {
-                    this.frutas.push(this.novaFruta)
-                    this.novaFruta = ''
-                    this.totalFrutos = this.frutas.length
+                mostrarPortugal: function() {
+                    this.pais = 'Portugal'
+                    this.imagem = 'img/bandeira-portugal.png'
+                },
+                mostrarBrasil: function() {
+                    this.pais = 'Brasil'
+                    this.imagem = 'img/bandeira-do-brasil.png'
                 }
-            }
+            },
         });
+        root.mostrarBrasil();
     </script>
 </body>
 
