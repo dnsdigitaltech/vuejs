@@ -1,16 +1,7 @@
 <template>
   <div>
-    <h3>ESTADO DO SERVIDOR</h3>
-    <hr>
-    <estado-servidor />
-    <hr>
-    <estado-servidor />
-    <hr>
-    <estado-servidor />
-    <hr>
-    <estado-servidor />
-    <hr>
-    <estado-servidor />
+    <h3>título</h3>
+    <div class="alert alert-success text-center">Mensagem</div>
   </div>
 </template>
 
