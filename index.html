@@ -11,33 +11,30 @@
 
 <body>
     <div id="root">
-        <h3>o país selecionado é {{pais}}</h3>
-        <img :src="imagem" :alt="nome_imagem">
-        <div>
-            <button @click="mostrarPortugal">Portugal</button>
-            <button @click="mostrarBrasil">Brasil</button>
-        </div>
+        <span v-text="valor"></span>
+        <span v-html="valor"></span>
+        <button @click="t1">Título 1</button>
+        <button @click="t3">Título 3</button>
+        <button @click="t5">Título 5</button>
     </div>
     <script>
         let root = new Vue({
             el: "#root",
             data: {
-                pais: '',
-                imagem: '',
-                nome_imagem: 'Bandeira'
+                valor: '<h1>Título Vue Novo</h1>'
             },
             methods: {
-                mostrarPortugal: function() {
-                    this.pais = 'Portugal'
-                    this.imagem = 'img/bandeira-portugal.png'
+                t1: function() {
+                    this.valor = '<h1>Título Vue Novo</h1>'
                 },
-                mostrarBrasil: function() {
-                    this.pais = 'Brasil'
-                    this.imagem = 'img/bandeira-do-brasil.png'
+                t3: function() {
+                    this.valor = '<h3>Título Vue Novo</h3>'
+                },
+                t5: function() {
+                    this.valor = '<h5>Título Vue Novo</h5>'
                 }
             },
         });
-        root.mostrarBrasil();
     </script>
 </body>
 
