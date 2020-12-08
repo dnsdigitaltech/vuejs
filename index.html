@@ -11,32 +11,27 @@
 
 <body>
     <div id="root">
-        <componente-pai/>
+        <lista-nomes :nomescomponent='nomes' />
     </div>
     <script>
-        Vue.component('componente-pai', {
+        Vue.component('lista-nomes', {
+            props: [
+                'nomescomponent'
+            ],
             template: `
-                <div>
-                    <p>Este é o texto do componente pai</p>
-                    <filho/>
-                </div>
-            `
-        })
-        Vue.component('filho', {
-            template: `
-                <div>
-                    <p>Este é o texto do componente filho</p>
-                </div>
+                <ul>
+                    <li v-for="nome in nomescomponent">{{ nome }}</li>
+                </ul>
             `
         })
         let root = new Vue({
             el: "#root",
-            component: [
-                'componente-pai',
-                'filho'
-            ]
+            data: {
+                nomes: ['Davi', 'Ana', 'Carlos']
+            }
         });
     </script>
+</body>
 </body>
 
 </html>
