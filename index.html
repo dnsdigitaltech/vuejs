@@ -11,19 +11,29 @@
 
 <body>
     <div id="root">
-        <novo></novo>
-        <novo/>
+        <componente-pai/>
     </div>
     <script>
-        Vue.component('novo', {
+        Vue.component('componente-pai', {
             template: `
-                <div>Olá mundo!</div>
+                <div>
+                    <p>Este é o texto do componente pai</p>
+                    <filho/>
+                </div>
+            `
+        })
+        Vue.component('filho', {
+            template: `
+                <div>
+                    <p>Este é o texto do componente filho</p>
+                </div>
             `
         })
         let root = new Vue({
             el: "#root",
             component: [
-                'novo'
+                'componente-pai',
+                'filho'
             ]
         });
     </script>
