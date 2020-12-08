@@ -11,35 +11,26 @@
 
 <body>
     <div id="root">
-        <input v-model="novoNome">
+        <p>O meu nome é {{nomeCompletoC}}</p>
         <div>
-            <button @click="adicionar">Adicionar</button>
+            <input v-model="nome">
         </div>
-        <hr>
-        <ul>
-            <li v-for="nome in nomes">{{ nome | capitalizar}}</li>
-        </ul>
-        <hr>
-        <ul>
-            <li v-for="nome in nomes">{{ nome }}</li>
-        </ul>
     </div>
     <script>
         let root = new Vue({
             el: "#root",
             data: {
-                novoNome: '',
-                nomes: []
+                nome: "Davi",
+                apelido: "Bernardo"
             },
             methods: {
-                adicionar: function() {
-                    this.nomes.push(this.novoNome)
-                    this.novoNome = ''
+                nomeCompletoM: function() {
+                    return this.nome + " " + this.apelido
                 }
             },
-            filters: {
-                capitalizar: function(value) {
-                    return value.toUpperCase()
+            computed: {
+                nomeCompletoC: function() {
+                    return this.nome + " " + this.apelido
                 }
             }
         });
