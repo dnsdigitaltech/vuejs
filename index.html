@@ -10,28 +10,40 @@
 </head>
 
 <body>
-    
-<div id="root">
-    <p v-show="visivel">Primeiro</p>
-    <p v-if="visivel">Segundo</p>
-
-    <div>
-        <button @click="executar">Click</button>
+    <div id="root">
+        <input v-model="novoNome">
+        <div>
+            <button @click="adicionar">Adicionar</button>
+        </div>
+        <hr>
+        <ul>
+            <li v-for="nome in nomes">{{ nome | capitalizar}}</li>
+        </ul>
+        <hr>
+        <ul>
+            <li v-for="nome in nomes">{{ nome }}</li>
+        </ul>
     </div>
-</div>
-<script>
-    let root = new Vue({
-        el: "#root",
-        data: {
-            visivel: true
-        },
-        methods: {
-            executar: function() {
-                this.visivel = !this.visivel
+    <script>
+        let root = new Vue({
+            el: "#root",
+            data: {
+                novoNome: '',
+                nomes: []
+            },
+            methods: {
+                adicionar: function() {
+                    this.nomes.push(this.novoNome)
+                    this.novoNome = ''
+                }
+            },
+            filters: {
+                capitalizar: function(value) {
+                    return value.toUpperCase()
+                }
             }
-        },
-    });
-</script>
+        });
+    </script>
 </body>
 
 </html>
