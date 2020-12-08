@@ -1,17 +1,18 @@
 <template>
   <div id="app">
-    <Novo />
+    <componente1 />
+    <componente1 />
   </div>
 </template>
 
 <script>
 
-import Novo from "./components/Novo.vue";
+import componente1 from "./components/componente1.vue"
 
 export default {
-  name: 'App',
+  name: 'app',
   components: {
-    Novo
+    componente1
   }
 }
 </script>
