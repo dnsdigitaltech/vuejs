@@ -11,31 +11,41 @@
 
 <body>
     <div id="root">
-        <div v-if="visivel">
-            <h3>DIV 1 </h3>
-        </div>
-
-        <div v-else="visivel">
-            <h3>DIV2 </h3>
-        </div>
-        <button v-on:click="mostrarEsconder">Click</button>
-        <button v-on:click="metodo1">Click 1</button>
+        <p v-for="nome in nomes">
+            {{nome}}
+        </p>
+        <p v-for="cliente in clientes">
+            O cliente chama-se {{cliente.nome}}, ele tem {{cliente.idade}}
+        </p>
     </div>
     <script>
         let root = new Vue({
             el: "#root",
             data: {
-                visivel: true
-            },
-            methods: {
-                mostrarEsconder: function() {
-                    this.visivel = !this.visivel
-                    console.log(this.visivel)
-                },
-                metodo1: function() {
-                    console.log("Experiência")
-                }
-            },
+                clientes: [{
+                            nome: "Davi Bernardo",
+                            idade: "36 anos"
+                        }, {
+                            nome: "Ana",
+                            idade: "40 anos"
+                        }, {
+                            nome: "Davi Bernardo",
+                            idade: "36 anos"
+                        }, {
+                            nome: "Silvia",
+                            idade: "36 anos"
+                        }
+
+                    ]
+                    /*nomes: [
+                        "Carlos",
+                        "Ana",
+                        "João",
+                        "Davi",
+                        "Claudio",
+                        "Albertina"
+                    ]*/
+            }
         });
     </script>
 </body>
