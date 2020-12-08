@@ -10,25 +10,28 @@
 </head>
 
 <body>
-    <div id="root">
-        <p v-pre>{{ Este é o texto dentro de dois parenteses }}</p>
-        <p v-once>{{ nome }}</p>
-        <p v-text="nome"></p>
+    
+<div id="root">
+    <p v-show="visivel">Primeiro</p>
+    <p v-if="visivel">Segundo</p>
+
+    <div>
         <button @click="executar">Click</button>
     </div>
-    <script>
-        let root = new Vue({
-            el: "#root",
-            data: {
-                nome: "Davi"
-            },
-            methods: {
-                executar: function() {
-                    this.nome = "Silvia"
-                }
-            },
-        });
-    </script>
+</div>
+<script>
+    let root = new Vue({
+        el: "#root",
+        data: {
+            visivel: true
+        },
+        methods: {
+            executar: function() {
+                this.visivel = !this.visivel
+            }
+        },
+    });
+</script>
 </body>
 
 </html>
