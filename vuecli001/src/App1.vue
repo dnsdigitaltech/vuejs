@@ -1,5 +1,5 @@
 <template>
-<p>Componente App</p>
+<p>Componente App1</p>
 </template>
 
 <script>
