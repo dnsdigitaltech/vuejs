@@ -11,28 +11,20 @@
 
 <body>
     <div id="root">
-        <p>O meu nome é {{nomeCompletoC}}</p>
-        <div>
-            <input v-model="nome">
-        </div>
+        <novo></novo>
+        <novo/>
     </div>
     <script>
+        Vue.component('novo', {
+            template: `
+                <div>Olá mundo!</div>
+            `
+        })
         let root = new Vue({
             el: "#root",
-            data: {
-                nome: "Davi",
-                apelido: "Bernardo"
-            },
-            methods: {
-                nomeCompletoM: function() {
-                    return this.nome + " " + this.apelido
-                }
-            },
-            computed: {
-                nomeCompletoC: function() {
-                    return this.nome + " " + this.apelido
-                }
-            }
+            component: [
+                'novo'
+            ]
         });
     </script>
 </body>
