@@ -11,24 +11,37 @@
 
 <body>
     <div id="root">
-        <lista-nomes :nomescomponent='nomes' />
+        <p>{{nome}}</p>
+        <button @click="click">Click</button>
+        <button @click="destruir">destroy</button>
     </div>
     <script>
-        Vue.component('lista-nomes', {
-            props: [
-                'nomescomponent'
-            ],
-            template: `
-                <ul>
-                    <li v-for="nome in nomescomponent">{{ nome }}</li>
-                </ul>
-            `
-        })
         let root = new Vue({
             el: "#root",
             data: {
-                nomes: ['Davi', 'Ana', 'Carlos']
-            }
+                nome: ''
+            },
+            methods: {
+                click: function() {
+                    this.nome = 'Davi'
+                },
+                destruir: function() {
+                    root.$destroy()
+                }
+            },
+            created: function() {
+                console.log('criada')
+            },
+            mounted: function() {
+                console.log('Montada')
+            },
+            updated: function() {
+                console.log('Atualizada')
+            },
+
+            destroyed: function() {
+                console.log('Destruida')
+            },
         });
     </script>
 </body>
