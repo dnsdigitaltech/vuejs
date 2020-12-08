@@ -11,27 +11,20 @@
 
 <body>
     <div id="root">
-        <span v-text="valor"></span>
-        <span v-html="valor"></span>
-        <button @click="t1">Título 1</button>
-        <button @click="t3">Título 3</button>
-        <button @click="t5">Título 5</button>
+        <p v-pre>{{ Este é o texto dentro de dois parenteses }}</p>
+        <p v-once>{{ nome }}</p>
+        <p v-text="nome"></p>
+        <button @click="executar">Click</button>
     </div>
     <script>
         let root = new Vue({
             el: "#root",
             data: {
-                valor: '<h1>Título Vue Novo</h1>'
+                nome: "Davi"
             },
             methods: {
-                t1: function() {
-                    this.valor = '<h1>Título Vue Novo</h1>'
-                },
-                t3: function() {
-                    this.valor = '<h3>Título Vue Novo</h3>'
-                },
-                t5: function() {
-                    this.valor = '<h5>Título Vue Novo</h5>'
+                executar: function() {
+                    this.nome = "Silvia"
                 }
             },
         });
