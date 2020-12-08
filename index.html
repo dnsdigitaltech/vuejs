@@ -11,40 +11,28 @@
 
 <body>
     <div id="root">
-        <p v-for="nome in nomes">
-            {{nome}}
-        </p>
-        <p v-for="cliente in clientes">
-            O cliente chama-se {{cliente.nome}}, ele tem {{cliente.idade}}
-        </p>
+        <input type="text" v-model="novaFruta" id="">
+        <button v-on:click="inserirFruta">Inserir</button>
+        <p>Lista de Frutas:</p>
+        <ul>
+            <li v-for="fruta in frutas">{{fruta}}</li>
+        </ul>
+        <p>Total: <b>{{ totalFrutos }}</b></p>
     </div>
     <script>
         let root = new Vue({
             el: "#root",
             data: {
-                clientes: [{
-                            nome: "Davi Bernardo",
-                            idade: "36 anos"
-                        }, {
-                            nome: "Ana",
-                            idade: "40 anos"
-                        }, {
-                            nome: "Davi Bernardo",
-                            idade: "36 anos"
-                        }, {
-                            nome: "Silvia",
-                            idade: "36 anos"
-                        }
-
-                    ]
-                    /*nomes: [
-                        "Carlos",
-                        "Ana",
-                        "João",
-                        "Davi",
-                        "Claudio",
-                        "Albertina"
-                    ]*/
+                frutas: [],
+                novaFruta: '',
+                totalFrutos: 0
+            },
+            methods: {
+                inserirFruta: function() {
+                    this.frutas.push(this.novaFruta)
+                    this.novaFruta = ''
+                    this.totalFrutos = this.frutas.length
+                }
             }
         });
     </script>
