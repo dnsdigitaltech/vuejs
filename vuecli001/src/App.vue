@@ -1,38 +1,39 @@
 <template>
   <div class="container mt-3 box">
-    <div class="row">
-      <div class="col-12 p-4">
-        <p>Mecanismo para alterar o valor do nome</p>
-        <button @click="alterarnome">Alterar nome</button>
-        <app-detalhe :meunome="onomeoriginal"></app-detalhe>
-      </div>
-    </div>
-
+    <button @click="clickNome">Nome</button>
+    <button @click="clickApelido">Apelido</button>
+    <!--<p>{{nome}} {{apelido}}</p>-->
+    <app-infopessoa 
+    :infonome="nome" 
+    :infoapelido="apelido">
+    </app-infopessoa>
   </div>
 </template>
 
 <script>
-  import Detalhe from './components/Detalhe.vue'
+import infopessoa from './components/infopessoa';
+
   export default{
-    components: {
-      'app-detalhe': Detalhe
+    components:{
+      'app-infopessoa':infopessoa
     },
     data() {
-        return {
-            onomeoriginal: "Davi"
-        }
+      return {
+        nome: '',
+        apelido: ''
+      }
     },
     methods: {
-      alterarnome(){
-        this.onomeoriginal = "Carlos"
+      clickNome(){
+        this.nome = 'Davi'
+      },
+      clickApelido(){
+        this.apelido = 'Bernardo'
       }
     },
   }
 </script>
 
 <style scoped>
-  .box{
-    border: 2px solid black;
-    background-color: rgb(200, 200, 200);
-  }
+
 </style>
