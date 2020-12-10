@@ -1,13 +1,14 @@
 <template>
   <div>
-    <h3>App component</h3>
+    <p>Esta é a App.vue</p>
     <app-servidor></app-servidor>
+    
   </div>
 </template>
 
 <script>
 
-import Servidor from './Servidor.vue';
+import Servidor from './components/Servidor';
 export default{
   components: {
     'app-servidor': Servidor
