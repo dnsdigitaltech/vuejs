@@ -1,16 +1,17 @@
 <template>
     <div>
-        <p>Componete Child</p>
-        <p>{{valor1}}</p>
+        <p>(Component.vue) Nome: {{meunome}}</p>
+        <button @click="alterar()">Alterar</button>
     </div>
 </template>
 <script>
 export default {
-    props: {
-        valor1:{
-            type: String,
-            default: 'Davi Bernardo'
+    props: ['meunome'],
+    methods: {
+        alterar(){
+            this.meunome = "Bernardo"
+            this.$emit('nomeAlterado', this.meunome)
         }
-    }
+    },
 }
 </script>
