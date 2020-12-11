@@ -5,51 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vue Js</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vuex/3.1.1/vuex.min.js"></script>
 </head>
 <body>
     
     <div id="app">
-        <p>{{nome}} {{apelido}}</p>
-        <comp1></comp1>
-        <comp2></comp2>
+        <button @click="diminuir()">Diminuir</button>
+        <button @click="aumentar()">Aumentar</button>
+        <p> Valor: {{valor}}</p>
     </div>
 
     <script>
         //---------------------------
-        Vue.component('comp1', {
-            template:
-            `
-                <div>
-                <p>componente1 - {{valor1}}</p>
-                <p>componente1 - {{valor2}}</p>
-                <button @click="executar()"> Clicar</button>
-                </div>
-            `,
-            data: function(){
-                return{
-                    valor1: 100,
-                    valor2: 200
+        //VUEX
+        const store = new Vuex.Store({
+            state: {
+                valor: 0
+            },
+            mutations: {
+                incrementar(state){
+                    state.valor++
+                },
+                decrementar(state){
+                    state.valor--
+                }
+            }
+        })
+        //---------------------------
+        new Vue({
+            el: "#app",
+            computed: {
+                valor: function(){
+                    return store.state.valor
                 }
             },
             methods: {
-                /*executar(){ //não funciona em navegadores antigos
-                    this.valor1 = 20000
-                }*/
-                executar: function(){
-                    this.valor1 = 20000
+                diminuir: function(){
+                    store.commit('decrementar')
+                },
+                aumentar: function(){
+                    store.commit('incrementar')
                 }
             },
-        })
-        //---------------------------
-        Vue.component('comp2', {
-            template:
-            `
-                <p>componente2</p>
-            `
-        })
-        //---------------------------
-        let app = new Vue({
-            el: "#app",
             data:{
                 nome: "Davi",
                 apelido: "Bernardo"
